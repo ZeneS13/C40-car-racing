@@ -55,7 +55,7 @@ class Game {
       var index = 0;
 
       //x and y position of the cars
-      var x = 175 ;
+      var x = 215 ;
       var y;
 
       for(var plr in allPlayers){
@@ -90,9 +90,11 @@ class Game {
       player.distance +=10
       player.update();
     }
-
-    if(player.distance > 3860){
+    player.getRank();
+    if(player.distance > 4800){
       gameState = 2;
+      player.rank+=1;
+      Player.updateRank(player.rank);
     }
    
     drawSprites();
@@ -100,5 +102,6 @@ class Game {
 
   end(){
     console.log("Game Ended");
+    console.log(player.rank);
   }
 }
